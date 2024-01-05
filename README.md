@@ -181,15 +181,16 @@ Open the repository you have cloned and navigate to `Settings` section.
 There, on the left side expand the `Secrets and variables` under `Security` section and click on `Actions`.
 You need to configure the following secrets (make sure the secrets names are spelled correctly, as they are used by GitHub Actions workflow):
 1. AZURE_STATIC_WEB_APPS_API_TOKEN (token to deploy the website on Azure Static Web Apps)
-2. REACT_APP_API_SCOPE (Copy from the step 7. - "Global requirements")
-3. REACT_APP_BACKEND_API_HOST (Harck CMS backoffice API URL - check Harck CMS backend repository documentation)
-4. REACT_APP_CLIENT_ID (Copy from the step 10. - "Global requirements")
-5. REACT_APP_TENANT_ID (Copy from the step 10. - "Global requirements")
-6. REACT_APP_CLIENT_SECRET (Only needed for Cypress. Copy from the step 5. - "Global requirements")
-7. REACT_APP_USERNAME (Only needed for Cypress)
-8. REACT_APP_PASSWORD (Only needed for Cypress)
-9. REACT_APP_REDIRECT_URI (your static web app URI)
-
+2. API_SCOPE (Copy from the step 7. - "Global requirements")
+3. BACKEND_API_HOST (Harck CMS backoffice API URL - check Harck CMS backend repository documentation)
+4. CLIENT_ID (Copy from the step 10. - "Global requirements")
+5. TENANT_ID (Copy from the step 10. - "Global requirements")
+6. CLIENT_SECRET (Copy from the step 5. - "Global requirements")
+7. REDIRECT_URI (your static web app URI)
+8. USERNAME (Only needed for Cypress)
+9. PASSWORD (Only needed for Cypress)
+10. CYPRESS_PROJECT_ID (Only needed for Cypress)
+11. CYPRESS_RECORD_KEY (Only needed for Cypress)
 
 ### Custom domain
 Navigate to [Azure portal](https://portal.azure.com) and go to your Harck client's Static Web App.
