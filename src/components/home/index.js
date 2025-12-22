@@ -5,7 +5,7 @@ import {Divider} from '../common/divider';
 
 export const Home = () => {
 
-    const latestsNews = ["Create articles in multiple languages!", "Set-up a costume image for each article by language", "Upload any kind of files"];
+    const latestsNews = ["Internal depencies updated", "Fixed minor bugs: article editor"];
     const relevantInfo = ["Open-source project", "Supports Azure Active Directory", "Powered by serverless Azure Functions"];
 
     return (
@@ -15,7 +15,7 @@ export const Home = () => {
             </div>
             <Divider title='Latests news 🔥' />
             <div className='text-center text-margins'>
-                <p><strong>Available features on the Harck-CMS v.1.0.0</strong></p>
+                <p><strong>Harck-CMS v.1.1.1</strong></p>
                 {
                     latestsNews.map((news, index) => {
                         return <p key={index}>

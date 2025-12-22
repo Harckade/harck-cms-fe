@@ -14,7 +14,7 @@ export const About = () => {
                 <p>An open-source Content Management System provided by Harckade.</p>
                 <p>MIT License</p>
 
-                <p>Copyright (c) 2023 Harckade</p>
+                <p>Copyright (c) 2023 - 2026 Harckade</p>
             </div>
             <div className='text-margins'>
 
