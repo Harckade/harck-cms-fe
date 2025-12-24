@@ -14,6 +14,7 @@ jobs:
     name: Build and Deploy Job
     env:
       NPM_CONFIG_LEGACY_PEER_DEPS: false
+      CI: false
     steps:
       - name: Setup publish-profile and app-name env variables
         run: |
