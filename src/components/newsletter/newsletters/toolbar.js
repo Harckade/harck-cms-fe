@@ -8,9 +8,9 @@ import { FiTrash2, FiEdit3 } from 'react-icons/fi';
 import { BiBookAdd } from 'react-icons/bi';
 import { useNavigate } from 'react-router';
 import { unselectDocument } from '../../../actions/newsletter';
-import { MultiSelect } from 'react-multi-select-component';
 import { Languages } from '../../../consts/mappers/languages';
 import { Overlay } from '../../common/overlay';
+import { FilterBar } from '../../common/filterBar';
 
 export const Toolbar = ({ selectedNewsletter, handleShowNewNewsletter, handleShowDelete, setSearchFilter, setFilters, filters, availableLanguages, allowDeletion }) => {
     const dispatch = useDispatch();
@@ -25,11 +25,6 @@ export const Toolbar = ({ selectedNewsletter, handleShowNewNewsletter, handleSho
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [availableLanguages]);
-
-    const ovverrides = {
-        "selectSomeItems": "Filter by language",
-        "allItemsAreSelected": "All languages are selected"
-    };
 
     return (
         <Container fluid className={`files-toolbar ${settings.darkmode ? 'dark-mode' : ''}`}>
@@ -60,15 +55,7 @@ export const Toolbar = ({ selectedNewsletter, handleShowNewNewsletter, handleSho
 
                 <Col md="6" xs="12" sm="12">
                     <div className='d-flex float-end'>
-                        <MultiSelect
-                            options={filterOptions}
-                            value={filters}
-                            onChange={(val) => setFilters(val)}
-                            labelledBy="Filter by language"
-                            hasSelectAll={true}
-                            overrideStrings={ovverrides}
-                            className={'search-short-length ' + (settings.darkmode ? 'input-dark-mode' : '')}
-                        /><span>  </span>
+                        <FilterBar filterOptions={filterOptions} filters={filters} settings={settings} setFilters={setFilters} shortCss={true}/><span>  </span>
                         <InputGroup className={'search-short-length ' + (settings.darkmode ? 'input-dark-mode' : '')}>
                             <FormControl placeholder="Search" aria-label="Search" aria-describedby="search-by-text" onChange={(e) => { setSearchFilter(e.target.value) }} />
                         </InputGroup><span>  </span>

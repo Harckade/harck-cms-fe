@@ -1,4 +1,3 @@
-import React from 'react';
 import { Tabs, Tab } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { Newsletters } from './newsletters';

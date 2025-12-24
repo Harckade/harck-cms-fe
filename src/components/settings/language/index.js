@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../../design/custom.css';
 import { Languages } from '../../../consts/mappers/languages';
-import { MultiSelect } from 'react-multi-select-component';
 import * as R from 'ramda';
 import { Alert, Button, InputGroup } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateSettings } from '../../../actions/settings';
 import { Loading } from '../../common/loading';
+import { FilterBar } from '../../common/filterBar';
 
 export const Language = ({ dispatcher }) => {
     const dispatch = useDispatch();
@@ -20,7 +20,6 @@ export const Language = ({ dispatcher }) => {
     }
 
     const languageOptions = Object.keys(Languages).map((langKey) => multiSelectOption(langKey));
-    const ovverrides = { "selectSomeItems": "Select languages" };
 
     useEffect(() => {
         if (!R.isNil(settings.options) && !R.isNil(settings.options.languages) && settings.options.languages.length !== 0) {
@@ -43,16 +42,7 @@ export const Language = ({ dispatcher }) => {
                 }
             </Alert>
             {settings.user.isAdministrator ? <p>Update CMS languages by selecting them from the following menu</p> : ''}
-            <MultiSelect
-                options={languageOptions}
-                value={currentLanguages}
-                onChange={(val) => setCurrentLanguages(val)}
-                labelledBy="Languages"
-                hasSelectAll={true}
-                overrideStrings={ovverrides}
-                disabled={!settings.user.isAdministrator}
-                className={settings.darkmode ? 'input-dark-mode' : ''}
-            />
+            <FilterBar filterOptions={languageOptions} filters={currentLanguages} settings={settings} setFilters={setCurrentLanguages} />
             <InputGroup size="md" aria-label="Default language" className={`mb-3 ${settings.darkmode ? 'input-dark-mode' : ''}`}>
                 <span className="input-group-text">Default language</span>
                 <select value={defaultLanguage} className="form-control" disabled={!settings.user.isAdministrator} onChange={(event) => {
